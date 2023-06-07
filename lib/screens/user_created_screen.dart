@@ -39,7 +39,7 @@ class UserCreatedScreen extends StatelessWidget {
             'Your account has been created with the email address:',
             style: TextStyle(
               color: Colors.white70,
-              fontSize: 16.0,
+              fontSize: 17.0,
             ),
           ),
           const SizedBox(height: 8.0),

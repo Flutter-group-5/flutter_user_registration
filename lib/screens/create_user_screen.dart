@@ -99,15 +99,15 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 17.0),
                 TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
-                    labelText: 'Email',
+                    labelText: ' Email',
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your email address';
+                      return 'Please Enter your email address';
                     }
                     if (!value.endsWith('@gmail.com')) {
                       return 'Email address must end with @gmail.com';
@@ -121,7 +121,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 17.0),
                 TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(
