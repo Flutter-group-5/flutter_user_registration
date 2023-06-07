@@ -4,12 +4,14 @@ class UserCreatedScreen extends StatelessWidget {
   final String firstName;
   final String lastName;
   final String email;
+  final Function clearFieldsCallback;
 
   const UserCreatedScreen({
     Key? key,
     required this.firstName,
     required this.lastName,
     required this.email,
+    required this.clearFieldsCallback,
   }) : super(key: key);
 
   @override
@@ -52,23 +54,10 @@ class UserCreatedScreen extends StatelessWidget {
           const SizedBox(height: 32.0),
           ElevatedButton(
             onPressed: () {
+              clearFieldsCallback();
               Navigator.pop(context);
             },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.lightBlue,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24.0),
-              ),
-            ),
-            child: const Text(
-              'Back to Create User',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: const Text('Back to Create User'),
           ),
         ],
       ),
