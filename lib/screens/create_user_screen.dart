@@ -74,6 +74,9 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your last name';
                           }
+                          if (value == null || value.isEmpty) {
+                            return 'last name is required';
+                          }
                           return null;
                         },
                       ),
@@ -101,6 +104,9 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                       }
                       if (value.indexOf('@') == 0) {
                         return 'Please enter valid gmail address';
+                      }
+                      if (value == null || value.isEmpty) {
+                        return 'email is required field';
                       }
                       return null;
                     },
@@ -138,7 +144,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                       if (!RegExp(
                               r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#<span class="math-inline">&*~]).{8,}')
                           .hasMatch(value)) {
-                        return 'Password must contain uppercase,lowercase,number and special character';
+                        return 'a minimum 8 characters password contains a combination of upper case and lower case letter and number are required';
                       }
                       return null;
                     },
