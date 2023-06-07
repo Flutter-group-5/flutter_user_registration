@@ -47,115 +47,135 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
             key: _formKey,
             child: ListView(
               children: [
-                TextFormField(
-                  controller: _firstNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'First Name',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your first name';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _lastNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Last Name',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your last name';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email address';
-                    }
-                    if (!value.endsWith('@gmail.com')) {
-                      return 'Email address must be end with @gmail.com';
-                    }
-                    if (!value.contains('@')) {
-                      return 'Email address must contain @';
-                    }
-                    if (value.indexOf('@') == 0) {
-                      return 'Please enter valid gmail address';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _passwordController,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: _firstNameController,
+                        decoration: const InputDecoration(
+                          labelText: 'First Name',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your first name';
+                          }
+                          return null;
+                        },
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
+                      const SizedBox(height: 16.0),
+                      TextFormField(
+                        controller: _lastNameController,
+                        decoration: const InputDecoration(
+                          labelText: 'Last Name',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your last name';
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
                   ),
-                  obscureText: _obscurePassword,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter a password';
-                    }
-                    if (value.length < 8) {
-                      return 'Password must be at least 8 characters';
-                    }
-                    if (!RegExp(
-                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                        .hasMatch(value)) {
-                      return 'Password must contain uppercase letter, lowercase letter, a number, and a special character';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _retypePasswordController,
-                  decoration: InputDecoration(
-                    labelText: 'Retype Password',
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscureRetypePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscureRetypePassword = !_obscureRetypePassword;
-                        });
-                      },
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: TextFormField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email address';
+                      }
+                      if (!value.endsWith('@gmail.com')) {
+                        return 'Email address must be end with @gmail.com';
+                      }
+                      if (!value.contains('@')) {
+                        return 'Email address must contain @';
+                      }
+                      if (value.indexOf('@') == 0) {
+                        return 'Please enter valid gmail address';
+                      }
+                      return null;
+                    },
                   ),
-                  obscureText: _obscureRetypePassword,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please retype your password';
-                    }
-                    if (value != _passwordController.text) {
-                      return 'Passwords do not match';
-                    }
-                    return null;
-                  },
+                ),
+                const SizedBox(height: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: TextFormField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                    ),
+                    obscureText: _obscurePassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a password';
+                      }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      if (!RegExp(
+                              r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#<span class="math-inline">&*~]).{8,}')
+                          .hasMatch(value)) {
+                        return 'Password must contain uppercase,lowercase,number and special character';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: TextFormField(
+                    controller: _retypePasswordController,
+                    decoration: InputDecoration(
+                      labelText: 'Retype Password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureRetypePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureRetypePassword = !_obscureRetypePassword;
+                          });
+                        },
+                      ),
+                    ),
+                    obscureText: _obscureRetypePassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please retype your password';
+                      }
+                      if (value != _passwordController.text) {
+                        return 'Passwords do not match';
+                      }
+                      return null;
+                    },
+                  ),
                 ),
                 const SizedBox(
                   height: 32.0,
