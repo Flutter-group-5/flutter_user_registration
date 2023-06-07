@@ -144,7 +144,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                       if (!RegExp(
                               r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#<span class="math-inline">&*~]).{8,}')
                           .hasMatch(value)) {
-                        return 'a minimum 8 characters password contains a combination of upper case and lower case letter and number are required';
+                        return 'a minimum 8 characters password contains a combination of and number are required';
                       }
                       return null;
                     },
