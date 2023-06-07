@@ -30,11 +30,11 @@ class UserCreatedScreen extends StatelessWidget {
             'Welcome, $firstName $lastName!',
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 24.0,
+              fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 9.0),
           const Text(
             'Your account has been created with the email address:',
             style: TextStyle(
@@ -42,7 +42,7 @@ class UserCreatedScreen extends StatelessWidget {
               fontSize: 17.0,
             ),
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 9.0),
           Text(
             email,
             style: const TextStyle(
@@ -51,7 +51,7 @@ class UserCreatedScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 32.0),
+          const SizedBox(height: 30.0),
           ElevatedButton(
             onPressed: () {
               clearFieldsCallback();
