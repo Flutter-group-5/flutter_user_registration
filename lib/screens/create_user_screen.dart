@@ -69,7 +69,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(25.0),
           child: Form(
             key: _formKey,
             child: ListView(
@@ -148,9 +148,12 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                       return 'Password must be at least 8 characters';
                     }
                     if (!RegExp(
-                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                        .hasMatch(value)) {
-                      return 'Password must contain an uppercase letter, a lowercase letter, a number, and a special character';
+                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'
+                    ).hasMatch(value)) {
+                      return [
+                        'A minimum 8 characters password contains a combination of uppercase and ',
+                        'lowercase letter and number are required.',
+                      ].join('\n');
                     }
                     return null;
                   },
